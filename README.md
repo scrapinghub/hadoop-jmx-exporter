@@ -6,16 +6,16 @@ All metrics can be found [here](./examples/all_metrics.txt).
 
 Grafana dashboards json file and a short video demo in [dashboards](./dashboards) directory.
 
-Tested on CDH 5.14.2.
+Tested on [Hadoop 3.2.2](https://hub.docker.com/r/dcagatay/hadoop).
 
 ![HDFS-Namenode](./dashboards/HDFS-NameNode.png)
 
-# Run
+## Running
 
 ``` bash
-➜  hadoop_jmx_exporter git:(master) ✗ pip2 install -r requirements.txt
+➜  hadoop_jmx_exporter git:(master) ✗ pip3 install -r requirements.txt
 
-➜  hadoop_exporter git:(master) ✗ python2 hadoop_jmx_exporter.py -h
+➜  hadoop_exporter git:(master) ✗ python3 hadoop_jmx_exporter.py -h
 usage: hadoop_jmx_exporter.py [-h] -cluster cluster_name
                               [-queue yarn_queue_regexp]
                               [-nns [namenode_jmx_url [namenode_jmx_url ...]]]
@@ -41,13 +41,13 @@ optional arguments:
   -port port            Listen to this port. default: 6688
 ➜  hadoop_exporter git:(master) ✗
 
-➜  hadoop_exporter git:(master) ✗ python2 hadoop_jmx_exporter.py -cluster yh-cdh -nns http://10.193.40.10:50070/jmx http://10.193.40.3:50070/jmx -rms http://yh-shhd-cdh04:8088/jmx http://yh-shhd-cdh01:8088/jmx
+➜  hadoop_exporter git:(master) ✗ python3 hadoop_jmx_exporter.py -cluster yh-cdh -nns http://10.193.40.10:50070/jmx http://10.193.40.3:50070/jmx -rms http://yh-shhd-cdh04:8088/jmx http://yh-shhd-cdh01:8088/jmx
 Listen at 0.0.0.0:6688
 ```
 
 Open your browser to view metrics: `http://127.0.0.1:6688/metrics`.
 
-# Reference
+## References
 
 1. https://github.com/cauwulixuan/hadoop_exporter
 2. http://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/Metrics.html#namenode

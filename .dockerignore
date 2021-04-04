@@ -1,0 +1,11 @@
+dashboards
+examples
+
+.direnv
+.vscode
+
+*.pyc
+__pycache__
+
+*.log
+docker-compose.yml

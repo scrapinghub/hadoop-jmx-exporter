@@ -1,17 +1,17 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import time
 from prometheus_client import start_http_server
 from prometheus_client.core import REGISTRY
 
-import utils
-from utils import get_module_logger
-from hdfs_namenode import NameNodeMetricCollector
-from hdfs_datanode import DataNodeMetricCollector
-from hdfs_journalnode import JournalNodeMetricCollector
-from yarn_resourcemanager import ResourceManagerMetricCollector
-from yarn_nodemanager import NodeManagerMetricCollector
+from lib import utils
+from lib.utils import get_module_logger
+from lib.hdfs_namenode import NameNodeMetricCollector
+from lib.hdfs_datanode import DataNodeMetricCollector
+from lib.hdfs_journalnode import JournalNodeMetricCollector
+from lib.yarn_resourcemanager import ResourceManagerMetricCollector
+from lib.yarn_nodemanager import NodeManagerMetricCollector
 
 logger = get_module_logger(__name__)
 
@@ -34,7 +34,7 @@ def main():
     host = args.host
     port = int(args.port)
     start_http_server(port, host)
-    print "Listen at %s:%s" % (host, port)
+    print("Listen at %s:%s" % (host, port))
     register_prometheus(args.cluster, args)
     while True:
         time.sleep(300)

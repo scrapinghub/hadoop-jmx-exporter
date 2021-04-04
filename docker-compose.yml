@@ -1,0 +1,12 @@
+version: "3"
+services:
+  
+  exporter:
+    build: ./
+    image: dcagatay/hadoop-jmx-exporter:latest
+    environment:
+      CLUSTER_NAME: "mycluster"
+      # NAMENODE_JMX_URL: "http://192.168.1.71:9870/jmx"
+    ports:
+      - 6689:6688
+    restart: unless-stopped
